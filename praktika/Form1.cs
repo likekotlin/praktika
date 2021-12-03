@@ -72,12 +72,7 @@ namespace praktika
                     TimeConsumingMethodDelegate(TimeConsumingMethod);
                 del.BeginInvoke(int.Parse(textBox1.Text), null, null);
           
-            if (!char.IsDigit(e.KeyChar)) 
-            {
-                e.Handled = true;
-                MessageBox.Show("Поле должно содержать цифры");
-
-            }
+          
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -110,14 +105,7 @@ namespace praktika
                 System.Windows.Forms.MessageBox.Show("Run Cancelled");
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (!(textBox1.Text == ""))
-            {
-                int i = int.Parse(textBox1.Text);
-                backgroundWorker1.RunWorkerAsync(i);
-            }
-        }
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -125,6 +113,15 @@ namespace praktika
             Cancel = true;
             backgroundWorker1.CancelAsync();
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (!(textBox1.Text == ""))
+            {
+                int i = int.Parse(textBox1.Text);
+                backgroundWorker1.RunWorkerAsync(i);
+            }
         }
     }
 }

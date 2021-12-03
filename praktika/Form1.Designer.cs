@@ -58,7 +58,6 @@ namespace praktika
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(126, 13);
             this.textBox1.Location = new System.Drawing.Point(105, 13);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(80, 22);
@@ -67,7 +66,6 @@ namespace praktika
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(128, 40);
             this.progressBar1.Location = new System.Drawing.Point(110, 40);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(240, 20);
@@ -75,18 +73,16 @@ namespace praktika
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(212, 12);
             this.button1.Location = new System.Drawing.Point(195, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 25);
             this.button1.TabIndex = 4;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(293, 13);
             this.button2.Location = new System.Drawing.Point(270, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 25);
@@ -107,7 +103,6 @@ namespace praktika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 63);
             this.ClientSize = new System.Drawing.Size(352, 63);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
