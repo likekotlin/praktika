@@ -1,5 +1,5 @@
 ﻿
-namespace praktika
+namespace Praktika
 {
     partial class Form1
     {
@@ -43,6 +43,10 @@ namespace praktika
             // 
             this.btnRun.Location = new System.Drawing.Point(22, 68);
             this.btnRun.Name = "btnRun";
+            this.helpProvider1.SetHelpString(this.btnRun, "Sum");
+            this.btnRun.Location = new System.Drawing.Point(16, 64);
+            this.btnRun.Name = "btnRun";
+            this.helpProvider1.SetShowHelp(this.btnRun, true);
             this.btnRun.Size = new System.Drawing.Size(75, 23);
             this.btnRun.TabIndex = 0;
             this.btnRun.Text = "Сумма";
@@ -53,6 +57,10 @@ namespace praktika
             // 
             this.btnWork.Location = new System.Drawing.Point(191, 105);
             this.btnWork.Name = "btnWork";
+            this.helpProvider1.SetHelpString(this.btnWork, "Start work");
+            this.btnWork.Location = new System.Drawing.Point(120, 128);
+            this.btnWork.Name = "btnWork";
+            this.helpProvider1.SetShowHelp(this.btnWork, true);
             this.btnWork.Size = new System.Drawing.Size(75, 23);
             this.btnWork.TabIndex = 1;
             this.btnWork.Text = "Работа";
@@ -63,6 +71,7 @@ namespace praktika
             // 
             this.lblA.AutoSize = true;
             this.lblA.Location = new System.Drawing.Point(19, 26);
+            this.lblA.Location = new System.Drawing.Point(8, 24);
             this.lblA.Name = "lblA";
             this.lblA.Size = new System.Drawing.Size(86, 17);
             this.lblA.TabIndex = 2;
@@ -72,6 +81,7 @@ namespace praktika
             // 
             this.lblB.AutoSize = true;
             this.lblB.Location = new System.Drawing.Point(217, 28);
+            this.lblB.Location = new System.Drawing.Point(216, 24);
             this.lblB.Name = "lblB";
             this.lblB.Size = new System.Drawing.Size(86, 17);
             this.lblB.TabIndex = 3;
@@ -81,6 +91,10 @@ namespace praktika
             // 
             this.txbA.Location = new System.Drawing.Point(111, 23);
             this.txbA.Name = "txbA";
+            this.helpProvider1.SetHelpString(this.txbA, "For input integer A.");
+            this.txbA.Location = new System.Drawing.Point(88, 24);
+            this.txbA.Name = "txbA";
+            this.helpProvider1.SetShowHelp(this.txbA, true);
             this.txbA.Size = new System.Drawing.Size(100, 22);
             this.txbA.TabIndex = 4;
             // 
@@ -105,6 +119,13 @@ namespace praktika
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
+            this.helpProvider1.SetHelpString(this.txbB, "For input integer B.");
+            this.txbB.Location = new System.Drawing.Point(295, 21);
+            this.txbB.Name = "txbB";
+            this.helpProvider1.SetShowHelp(this.txbB, true);
+            this.txbB.Size = new System.Drawing.Size(100, 22);
+            this.txbB.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -119,6 +140,12 @@ namespace praktika
             this.Controls.Add(this.btnRun);
             this.Name = "Form1";
             this.Text = "Асинхронный запуск";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.HelpButton = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "Form1";
+            this.Text = "Ассинхронное выполнение";
             this.ResumeLayout(false);
             this.PerformLayout();
 

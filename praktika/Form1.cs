@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace praktika
+namespace Praktika
 {
     public partial class Form1 : Form
     {
@@ -21,6 +21,7 @@ namespace praktika
         private int Summ(int a, int b)
         {
             System.Threading.Thread.Sleep(3000);
+            System.Threading.Thread.Sleep(9000);
             return a + b;
         }
 
@@ -64,3 +65,4 @@ namespace praktika
         }
     }
 }
+
