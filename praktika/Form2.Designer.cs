@@ -31,11 +31,11 @@ namespace praktika
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.oleDbSelectCommand1 = new System.Data.OleDb.OleDbCommand();
+            this.oleDbConnection1 = new System.Data.OleDb.OleDbConnection();
             this.oleDbInsertCommand1 = new System.Data.OleDb.OleDbCommand();
             this.oleDbUpdateCommand1 = new System.Data.OleDb.OleDbCommand();
             this.oleDbDeleteCommand1 = new System.Data.OleDb.OleDbCommand();
             this.oleDbDataAdapter1 = new System.Data.OleDb.OleDbDataAdapter();
-            this.oleDbConnection1 = new System.Data.OleDb.OleDbConnection();
             this.konfetnaya_fabrikaDataSet1 = new praktika.Konfetnaya_fabrikaDataSet();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -44,6 +44,12 @@ namespace praktika
             this.имяDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.фамилияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.городDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SortTextBox = new System.Windows.Forms.TextBox();
+            this.заказчикиTableAdapter1 = new praktika.Konfetnaya_fabrikaDataSetTableAdapters.ЗаказчикиTableAdapter();
+            this.label2 = new System.Windows.Forms.Label();
+            this.FilterTextBox = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.konfetnaya_fabrikaDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -52,6 +58,11 @@ namespace praktika
             // 
             this.oleDbSelectCommand1.CommandText = "SELECT * FROM Заказчики";
             this.oleDbSelectCommand1.Connection = this.oleDbConnection1;
+            // 
+            // oleDbConnection1
+            // 
+            this.oleDbConnection1.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\Konfetnaya_fabrika.m" +
+    "db;Persist Security Info=True";
             // 
             // oleDbInsertCommand1
             // 
@@ -105,11 +116,6 @@ namespace praktika
                         new System.Data.Common.DataColumnMapping("Фамилия", "Фамилия"),
                         new System.Data.Common.DataColumnMapping("Город", "Город")})});
             this.oleDbDataAdapter1.UpdateCommand = this.oleDbUpdateCommand1;
-            // 
-            // oleDbConnection1
-            // 
-            this.oleDbConnection1.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\Konfetnaya_fabrika.m" +
-    "db;Persist Security Info=True";
             // 
             // konfetnaya_fabrikaDataSet1
             // 
@@ -187,11 +193,64 @@ namespace praktika
             this.городDataGridViewTextBoxColumn.Name = "городDataGridViewTextBoxColumn";
             this.городDataGridViewTextBoxColumn.Width = 125;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(233, 172);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 17);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Сортировка";
+            // 
+            // SortTextBox
+            // 
+            this.SortTextBox.Location = new System.Drawing.Point(351, 172);
+            this.SortTextBox.Name = "SortTextBox";
+            this.SortTextBox.Size = new System.Drawing.Size(134, 22);
+            this.SortTextBox.TabIndex = 6;
+            this.SortTextBox.Text = "Фамилия";
+            // 
+            // заказчикиTableAdapter1
+            // 
+            this.заказчикиTableAdapter1.ClearBeforeFill = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(233, 213);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 17);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Фильтрация";
+            // 
+            // FilterTextBox
+            // 
+            this.FilterTextBox.Location = new System.Drawing.Point(351, 208);
+            this.FilterTextBox.Name = "FilterTextBox";
+            this.FilterTextBox.Size = new System.Drawing.Size(134, 22);
+            this.FilterTextBox.TabIndex = 8;
+            this.FilterTextBox.Text = "Город = \"Пушкин\"";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(62, 149);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(101, 69);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Сортировка и фильтрция";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.FilterTextBox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.SortTextBox);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -200,6 +259,7 @@ namespace praktika
             ((System.ComponentModel.ISupportInitialize)(this.konfetnaya_fabrikaDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -219,5 +279,11 @@ namespace praktika
         private System.Windows.Forms.DataGridViewTextBoxColumn имяDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn фамилияDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn городDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox SortTextBox;
+        private Konfetnaya_fabrikaDataSetTableAdapters.ЗаказчикиTableAdapter заказчикиTableAdapter1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox FilterTextBox;
+        private System.Windows.Forms.Button button3;
     }
 }
