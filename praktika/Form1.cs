@@ -16,5 +16,20 @@ namespace praktika
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            System.Data.OleDb.OleDbDataReader myReader;
+            string Customerstring;
+            oleDbConnection1.Open();
+            myReader = oleDbCommand1.ExecuteReader();
+            while (myReader.Read())
+            {
+                Customerstring = myReader[1].ToString() + " " + myReader[2].ToString();
+                listBox1.Items.Add(Customerstring);
+            }
+            myReader.Close();
+            oleDbConnection1.Close();
+        }
     }
 }
