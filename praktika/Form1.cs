@@ -16,6 +16,24 @@ namespace praktika
         {
             InitializeComponent();
         }
+        private BindingSource sotrBindingSource;
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            сотрудникиTableAdapter1.Fill(konfetnaya_fabrikaDataSet1.Сотрудники);
+            sotrBindingSource = new BindingSource(konfetnaya_fabrikaDataSet1, "Сотрудники");
+            FamtextBox.DataBindings.Add("Text", sotrBindingSource, "Фамилия");
+            NametextBox.DataBindings.Add("Text", sotrBindingSource, "Имя");
+            SectiontextBox.DataBindings.Add("Text", sotrBindingSource, "Отдел");
+        }
+
+        private void Previousbutton_Click(object sender, EventArgs e)
+        {
+            sotrBindingSource.MovePrevious();
+        }
+
+        private void Nextbutton_Click(object sender, EventArgs e)
+        {
+            sotrBindingSource.MoveNext();
 
         private void сотрудникиBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -51,6 +69,7 @@ namespace praktika
         {
             Form2 Exercise2 = new Form2();
             Exercise2.Show();
+
         }
     }
 }

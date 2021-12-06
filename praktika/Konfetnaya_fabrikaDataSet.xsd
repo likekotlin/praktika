@@ -412,6 +412,13 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Сотрудники" />
+      <xs:field xpath="mstns:Код" />
+    </xs:unique>
+  </xs:element>
         <xs:element name="Товары" msprop:Generator_TableClassName="ТоварыDataTable" msprop:Generator_TableVarName="tableТовары" msprop:Generator_TablePropName="Товары" msprop:Generator_RowDeletingName="ТоварыRowDeleting" msprop:Generator_RowChangingName="ТоварыRowChanging" msprop:Generator_RowEvHandlerName="ТоварыRowChangeEventHandler" msprop:Generator_RowDeletedName="ТоварыRowDeleted" msprop:Generator_UserTableName="Товары" msprop:Generator_RowChangedName="ТоварыRowChanged" msprop:Generator_RowEvArgName="ТоварыRowChangeEvent" msprop:Generator_RowClassName="ТоварыRow">
           <xs:complexType>
             <xs:sequence>

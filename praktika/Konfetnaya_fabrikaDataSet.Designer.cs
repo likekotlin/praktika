@@ -24,6 +24,8 @@ namespace praktika {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class Konfetnaya_fabrikaDataSet : global::System.Data.DataSet {
         
+        private СотрудникиDataTable tableСотрудники;
+        
 
         private ЗаказчикиDataTable tableЗаказчики;
         
@@ -65,6 +67,9 @@ namespace praktika {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                if ((ds.Tables["Сотрудники"] != null)) {
+                    base.Tables.Add(new СотрудникиDataTable(ds.Tables["Сотрудники"]));
+                }
                 if ((ds.Tables["Заказчики"] != null)) {
                     base.Tables.Add(new ЗаказчикиDataTable(ds.Tables["Заказчики"]));
                 }
@@ -214,6 +219,9 @@ namespace praktika {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
+                if ((ds.Tables["Сотрудники"] != null)) {
+                    base.Tables.Add(new СотрудникиDataTable(ds.Tables["Сотрудники"]));
+                }
 
                 if ((ds.Tables["Заказчики"] != null)) {
                     base.Tables.Add(new ЗаказчикиDataTable(ds.Tables["Заказчики"]));
@@ -283,6 +291,7 @@ namespace praktika {
                 }
             }
 
+
             this.tableСотрудники = ((СотрудникиDataTable)(base.Tables["Сотрудники"]));
             if ((initTable == true)) {
                 if ((this.tableСотрудники != null)) {
@@ -297,7 +306,6 @@ namespace praktika {
             }
 
             this.relationПоставщикиТовары = this.Relations["ПоставщикиТовары"];
-
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -308,6 +316,9 @@ namespace praktika {
             this.Namespace = "http://tempuri.org/Konfetnaya_fabrikaDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
+            this.tableСотрудники = new СотрудникиDataTable();
+            base.Tables.Add(this.tableСотрудники);
+
 
             this.tableЗаказчики = new ЗаказчикиDataTable();
             base.Tables.Add(this.tableЗаказчики);
@@ -414,6 +425,9 @@ namespace praktika {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+
+        public delegate void СотрудникиRowChangeEventHandler(object sender, СотрудникиRowChangeEvent e);
+        
         public delegate void ЗаказчикиRowChangeEventHandler(object sender, ЗаказчикиRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -470,6 +484,8 @@ namespace praktika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal СотрудникиDataTable(global::System.Data.DataTable table) {
+
 
             internal СотрудникиDataTable(global::System.Data.DataTable table) {
 
@@ -491,6 +507,7 @@ namespace praktika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected СотрудникиDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
 
             protected СотрудникиDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
 
@@ -510,6 +527,9 @@ namespace praktika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ФамилияColumn {
+                get {
+                    return this.columnФамилия;
 
             public global::System.Data.DataColumn ФамилияColumn {
                 get {
@@ -524,6 +544,9 @@ namespace praktika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ИмяColumn {
+                get {
+                    return this.columnИмя;
 
             public global::System.Data.DataColumn ИмяColumn {
                 get {
@@ -538,6 +561,9 @@ namespace praktika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ОтделColumn {
+                get {
+                    return this.columnОтдел;
 
             public global::System.Data.DataColumn ОтделColumn {
                 get {
@@ -564,6 +590,7 @@ namespace praktika {
             public СотрудникиRow this[int index] {
                 get {
                     return ((СотрудникиRow)(this.Rows[index]));
+
             public ЗаказчикиRow this[int index] {
                 get {
                     return ((ЗаказчикиRow)(this.Rows[index]));
@@ -639,7 +666,8 @@ namespace praktika {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 СотрудникиDataTable cln = ((СотрудникиDataTable)(base.Clone()));
-                ЗаказчикиDataTable cln = ((ЗаказчикиDataTable)(base.Clone()));
+        
+              ЗаказчикиDataTable cln = ((ЗаказчикиDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -648,6 +676,7 @@ namespace praktika {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
                 return new СотрудникиDataTable();
+
                 return new ЗаказчикиDataTable();
             }
             
@@ -674,12 +703,14 @@ namespace praktika {
                 base.Columns.Add(this.columnИмя);
                 this.columnОтдел = new global::System.Data.DataColumn("Отдел", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnОтдел);
+
                 this.columnИмя = new global::System.Data.DataColumn("Имя", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnИмя);
                 this.columnФамилия = new global::System.Data.DataColumn("Фамилия", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnФамилия);
                 this.columnГород = new global::System.Data.DataColumn("Город", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnГород);
+
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnКод}, true));
                 this.columnКод.AutoIncrement = true;
@@ -715,6 +746,7 @@ namespace praktika {
             protected override global::System.Type GetRowType() {
                 return typeof(СотрудникиRow);
                 return typeof(ЗаказчикиRow);
+
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -725,6 +757,7 @@ namespace praktika {
                     this.СотрудникиRowChanged(this, new СотрудникиRowChangeEvent(((СотрудникиRow)(e.Row)), e.Action));
                 if ((this.ЗаказчикиRowChanged != null)) {
                     this.ЗаказчикиRowChanged(this, new ЗаказчикиRowChangeEvent(((ЗаказчикиRow)(e.Row)), e.Action));
+
                 }
             }
             
@@ -736,6 +769,7 @@ namespace praktika {
                     this.СотрудникиRowChanging(this, new СотрудникиRowChangeEvent(((СотрудникиRow)(e.Row)), e.Action));
                 if ((this.ЗаказчикиRowChanging != null)) {
                     this.ЗаказчикиRowChanging(this, new ЗаказчикиRowChangeEvent(((ЗаказчикиRow)(e.Row)), e.Action));
+
                 }
             }
             
@@ -834,6 +868,17 @@ namespace praktika {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class СотрудникиRow : global::System.Data.DataRow {
+            
+            private СотрудникиDataTable tableСотрудники;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal СотрудникиRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableСотрудники = ((СотрудникиDataTable)(this.Table));
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
@@ -873,6 +918,13 @@ namespace praktika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Код {
+                get {
+                    return ((int)(this[this.tableСотрудники.КодColumn]));
+                }
+                set {
+                    this[this.tableСотрудники.КодColumn] = value;
+                }
             internal ТоварыDataTable(global::System.Data.DataTable table) {
             internal ПоставщикиDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
@@ -891,6 +943,18 @@ namespace praktika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Фамилия {
+                get {
+                    try {
+                        return ((string)(this[this.tableСотрудники.ФамилияColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Фамилия\' в таблице \'Сотрудники\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableСотрудники.ФамилияColumn] = value;
+                }
             protected ТоварыDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
 
             protected ПоставщикиDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
@@ -900,6 +964,17 @@ namespace praktika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Имя {
+                get {
+                    try {
+                        return ((string)(this[this.tableСотрудники.ИмяColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Имя\' в таблице \'Сотрудники\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableСотрудники.ИмяColumn] = value;
             public global::System.Data.DataColumn Код_продуктаColumn {
                 get {
                     return this.columnКод_продукта;
@@ -911,6 +986,17 @@ namespace praktika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Отдел {
+                get {
+                    try {
+                        return ((string)(this[this.tableСотрудники.ОтделColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Отдел\' в таблице \'Сотрудники\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableСотрудники.ОтделColumn] = value;
             public global::System.Data.DataColumn НаименованиеColumn {
                 get {
                     return this.columnНаименование;
@@ -922,6 +1008,8 @@ namespace praktika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsФамилияNull() {
+                return this.IsNull(this.tableСотрудники.ФамилияColumn);
             public global::System.Data.DataColumn _Цена___Column {
                 get {
                     return this._columnЦена___;
@@ -933,6 +1021,8 @@ namespace praktika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetФамилияNull() {
+                this[this.tableСотрудники.ФамилияColumn] = global::System.Convert.DBNull;
             public global::System.Data.DataColumn Код_поставщикаColumn {
                 get {
                     return this.columnКод_поставщика;
@@ -944,6 +1034,8 @@ namespace praktika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsИмяNull() {
+                return this.IsNull(this.tableСотрудники.ИмяColumn);
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -953,6 +1045,20 @@ namespace praktika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetИмяNull() {
+                this[this.tableСотрудники.ИмяColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsОтделNull() {
+                return this.IsNull(this.tableСотрудники.ОтделColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetОтделNull() {
+                this[this.tableСотрудники.ОтделColumn] = global::System.Convert.DBNull;
             public ТоварыRow this[int index] {
                 get {
                     return ((ТоварыRow)(this.Rows[index]));
@@ -1239,6 +1345,20 @@ namespace praktika {
         }
         
         /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class СотрудникиRowChangeEvent : global::System.EventArgs {
+            
+            private СотрудникиRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public СотрудникиRowChangeEvent(СотрудникиRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class СотрудникиRow : global::System.Data.DataRow {
@@ -1281,6 +1401,17 @@ namespace praktika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public СотрудникиRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
            public int Код {
                 get {
                     return ((int)(this[this.tableСотрудники.КодColumn]));
@@ -4712,6 +4843,8 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
             }
         }
     }
+namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
+    
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -4722,6 +4855,7 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class СотрудникиTableAdapter : global::System.ComponentModel.Component 
     public partial class ТоварыTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.OleDb.OleDbDataAdapter _adapter;
@@ -4736,6 +4870,7 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public СотрудникиTableAdapter() {
         public ТоварыTableAdapter() {
             this.ClearBeforeFill = true;
         }
@@ -4833,6 +4968,48 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
             this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Сотрудники";
+            tableMapping.ColumnMappings.Add("Код", "Код");
+            tableMapping.ColumnMappings.Add("Фамилия", "Фамилия");
+            tableMapping.ColumnMappings.Add("Имя", "Имя");
+            tableMapping.ColumnMappings.Add("Отдел", "Отдел");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `Сотрудники` WHERE ((`Код` = ?) AND ((? = 1 AND `Фамилия` IS NULL) OR" +
+                " (`Фамилия` = ?)) AND ((? = 1 AND `Имя` IS NULL) OR (`Имя` = ?)) AND ((? = 1 AND" +
+                " `Отдел` IS NULL) OR (`Отдел` = ?)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Код", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Код", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Фамилия", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Фамилия", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Фамилия", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Фамилия", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Имя", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Имя", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Имя", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Имя", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Отдел", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Отдел", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Отдел", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Отдел", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Сотрудники` (`Фамилия`, `Имя`, `Отдел`) VALUES (?, ?, ?)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Фамилия", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Фамилия", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Имя", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Имя", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Отдел", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Отдел", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE `Сотрудники` SET `Фамилия` = ?, `Имя` = ?, `Отдел` = ? WHERE ((`Код` = ?) " +
+                "AND ((? = 1 AND `Фамилия` IS NULL) OR (`Фамилия` = ?)) AND ((? = 1 AND `Имя` IS " +
+                "NULL) OR (`Имя` = ?)) AND ((? = 1 AND `Отдел` IS NULL) OR (`Отдел` = ?)))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Фамилия", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Фамилия", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Имя", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Имя", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Отдел", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Отдел", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Код", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Код", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Фамилия", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Фамилия", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Фамилия", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Фамилия", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Имя", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Имя", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Имя", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Имя", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Отдел", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Отдел", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Отдел", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Отдел", global::System.Data.DataRowVersion.Original, false, null));
             tableMapping.DataSetTable = "Товары";
             tableMapping.ColumnMappings.Add("Код продукта", "Код продукта");
             tableMapping.ColumnMappings.Add("Наименование", "Наименование");
@@ -4889,7 +5066,11 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
+
+            this._commandCollection[0].CommandText = "SELECT Код, Фамилия, Имя, Отдел FROM Сотрудники";
+
             this._commandCollection[0].CommandText = "SELECT [Код продукта], Наименование, [Цена, $], [Код поставщика] FROM Товары";
+
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4897,6 +5078,7 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(Konfetnaya_fabrikaDataSet.СотрудникиDataTable dataTable) {
         public virtual int Fill(Konfetnaya_fabrikaDataSet.ТоварыDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
@@ -4910,6 +5092,9 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual Konfetnaya_fabrikaDataSet.СотрудникиDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            Konfetnaya_fabrikaDataSet.СотрудникиDataTable dataTable = new Konfetnaya_fabrikaDataSet.СотрудникиDataTable();
         public virtual Konfetnaya_fabrikaDataSet.ТоварыDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             Konfetnaya_fabrikaDataSet.ТоварыDataTable dataTable = new Konfetnaya_fabrikaDataSet.ТоварыDataTable();
@@ -4920,6 +5105,7 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Konfetnaya_fabrikaDataSet.СотрудникиDataTable dataTable) {
         public virtual int Update(Konfetnaya_fabrikaDataSet.ТоварыDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
@@ -4928,7 +5114,11 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(Konfetnaya_fabrikaDataSet dataSet) {
+
+            return this.Adapter.Update(dataSet, "Сотрудники");
+
             return this.Adapter.Update(dataSet, "Товары");
+
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4950,6 +5140,9 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_Код, string Original_Фамилия, string Original_Имя, string Original_Отдел) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Код));
+            if ((Original_Фамилия == null)) {
         public virtual int Delete(int Original_Код_продукта, string Original_Наименование, string _Original_Цена___, global::System.Nullable<int> Original_Код_поставщика) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Код_продукта));
             if ((Original_Наименование == null)) {
@@ -4958,6 +5151,9 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Фамилия));
+            }
+            if ((Original_Имя == null)) {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Наименование));
             }
             if ((_Original_Цена___ == null)) {
@@ -4966,6 +5162,15 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Имя));
+            }
+            if ((Original_Отдел == null)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Отдел));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(_Original_Цена___));
             }
             if ((Original_Код_поставщика.HasValue == true)) {
@@ -4996,6 +5201,24 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string Фамилия, string Имя, string Отдел) {
+            if ((Фамилия == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Фамилия));
+            }
+            if ((Имя == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Имя));
+            }
+            if ((Отдел == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Отдел));
         public virtual int Insert(string Наименование, string _Цена___, global::System.Nullable<int> Код_поставщика) {
             if ((Наименование == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -5035,6 +5258,27 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Фамилия, string Имя, string Отдел, int Original_Код, string Original_Фамилия, string Original_Имя, string Original_Отдел) {
+            if ((Фамилия == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Фамилия));
+            }
+            if ((Имя == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Имя));
+            }
+            if ((Отдел == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Отдел));
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Код));
+            if ((Original_Фамилия == null)) {
         public virtual int Update(string Наименование, string _Цена___, global::System.Nullable<int> Код_поставщика, int Original_Код_продукта, string Original_Наименование, string _Original_Цена___, global::System.Nullable<int> Original_Код_поставщика) {
             if ((Наименование == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -5061,6 +5305,9 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Фамилия));
+            }
+            if ((Original_Имя == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Наименование));
             }
             if ((_Original_Цена___ == null)) {
@@ -5069,6 +5316,15 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Имя));
+            }
+            if ((Original_Отдел == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Отдел));
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(_Original_Цена___));
             }
             if ((Original_Код_поставщика.HasValue == true)) {
@@ -5108,6 +5364,9 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
+        private СотрудникиTableAdapter _сотрудникиTableAdapter;
+        
+
 
         private ЗаказчикиTableAdapter _заказчикиTableAdapter;
         
@@ -5256,6 +5515,9 @@ namespace praktika.Konfetnaya_fabrikaDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
+                if ((this._сотрудникиTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 if ((this._заказчикиTableAdapter != null)) {
                     count = (count + 1);
                 }
