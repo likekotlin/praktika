@@ -31,5 +31,11 @@ namespace praktika
             myReader.Close();
             oleDbConnection1.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form2 Exercise2 = new Form2();
+            Exercise2.Show();
+        }
     }
 }
